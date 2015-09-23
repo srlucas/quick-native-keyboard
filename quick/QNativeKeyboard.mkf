@@ -1,0 +1,6 @@
+# Simple project to include extension and quick wrapper files
+files
+{
+    QNativeKeyboard.h
+    QNativeKeyboard.cpp
+}
