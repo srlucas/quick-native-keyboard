@@ -34,12 +34,12 @@ This will be super helpfull when building extensions
     quickuser.h
   
     # Our new files
-    s3eKeyboard/quick/QNativeKeyboard.h
-    s3eKeyboard/quick/QNativeKeyboard.cpp
+    quick-native-keyboard/quick/QNativeKeyboard.h
+    quick-native-keyboard/quick/QNativeKeyboard.cpp
 } 
   ```
   * Follow the guide here: http://docs.madewithmarmalade.com/display/MD/Extending+Quick#ExtendingQuick-rebuild
-  * 
+  
   
 # Using the extension from LUA
 
