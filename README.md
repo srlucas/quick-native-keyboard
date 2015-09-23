@@ -1,4 +1,4 @@
-# quick-native-keyboard
+# Quick Native Keyboard C++ Wrapper
 Quick wrapper to Marmalade's s3eKeyboard features.
 
 The basic idea is to be able to quickly use a native keyboard from **Marmalade QUICK** without the need of much coding from the quick side of things.
@@ -38,7 +38,9 @@ This will be super helpfull when building extensions
   ```
   * Follow the guide here: http://docs.madewithmarmalade.com/display/MD/Extending+Quick#ExtendingQuick-rebuild
   * 
+  
 # Using the extension from LUA
+
 ## Hide/Show Keyboard
 In order to use the extension you can use any of the two following methods:
 ```
@@ -51,8 +53,32 @@ nativeKeyboard.showKeyboard()
 to show/hide the keyboard.
 
 ## Getting the input text form the keyboard
-the extension throws a **char_event** event to the lua layer with the following fields
+This extension throws a **char_event** event to the lua layer with the following fields
+|Key|Description|
+|------|--------|
+|regular_char|event->m_Char value from the s3eKeyboardEvent|
+|multibyte_char|regular_char as multibyte character using wctomb|
+|command|BACKSPACE or ENTER
+|
 
+## Bind listener
+You should bind your listener to listen for char_event like this:
+```lua
+system:addEventListener("char_event", char_event)
+```
 
-#
+## Implement listener method
+Implement your own logic, such as:
+```lua
+function char_event(event)
+  console:dbg("Received char [" .. event.regular_char .. "]")
+
+  if event.command == "ENTER" then
+    nativeKeyboard.hideKeyboard()
+    return
+  end
+end
+```
+
+# Credits
 KUDOS to [Kidloom](http://kidloom.com/) for leting me share this code with the community.
