@@ -5,7 +5,6 @@ The basic idea is to be able to quickly use a native keyboard from **Marmalade Q
 
 # Requirements
 * This extension has been tested to be compatible with **Marmalade 7.7.x**. It should work with 7.8.x as well but I didn't had the time to test is properly.
-* 
 
 # How to install
 * Clone this repo somewhere
@@ -19,9 +18,12 @@ options
 This will be super helpfull when building extensions
 * Tell tolua++ to include the new code:
   * Edit ***quick/quickuser_tolua.pkg*** and add something like:
+  ```
   $cfile "s3eKeyboard/quick/QNativeKeyboard.h"
+  ```
 * Rebuild lua bindings:
   * Run ***<quick root>/quick/quickuser_tolua*** (.bat on Windows, bash script on Mac).
+  
 *Rebuild Quick Binaries:
   * Add the new files to ***quick/quickuser.mkf***:
   ```mkb
@@ -54,12 +56,12 @@ to show/hide the keyboard.
 
 ## Getting the input text form the keyboard
 This extension throws a **char_event** event to the lua layer with the following fields
+
 |Key|Description|
 |------|--------|
 |regular_char|event->m_Char value from the s3eKeyboardEvent|
 |multibyte_char|regular_char as multibyte character using wctomb|
-|command|BACKSPACE or ENTER
-|
+|command|BACKSPACE or ENTER|
 
 ## Bind listener
 You should bind your listener to listen for char_event like this:
