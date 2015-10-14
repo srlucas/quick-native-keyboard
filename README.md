@@ -3,6 +3,10 @@ Quick wrapper to Marmalade's s3eKeyboard features.
 
 The basic idea is to be able to quickly use a native keyboard from **Marmalade QUICK** without the need of much coding from the quick side of things.
 
+This wrapper uses the **char_event** event, so it's quite usefull for keyboard input. 
+It should be quite straightforward to add support for key events and be able to handle different key events (ie Volume keys). 
+**That can be currently done straight from quick**
+
 # Requirements
 * This extension has been tested to be compatible with **Marmalade 7.7.x**. It should work with 7.8.x as well but I didn't had the time to test is properly.
 
